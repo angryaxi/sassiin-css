@@ -1,0 +1,122 @@
+/*
+ * Sassiin CSS - Columns
+ */
+
+@use 'variables';
+@use 'mixins';
+
+$column-width-percent: percentage((1 / variables.$columns)); // One column percentage.
+
+.row {
+    margin: 0 (-(variables.$gutter-px));
+    &.no-margin-bottom {
+        [class*='col-'] {
+            margin-bottom: 0;
+        }
+    }
+    &::after { // clearfix
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    &.no-gutter {
+        margin: 0;
+        [class*='col-'] {
+            padding: 0;
+        }
+    }
+
+    &.gutter-15 {
+        margin: 0 -15px;
+        [class*='col-'] {
+            padding: 0 15px;
+            margin-bottom: 15px * 2;
+        }
+    }
+
+    &.gutter-20 {
+        margin: 0 -20px;
+        [class*='col-'] {
+            padding: 0 20px;
+            margin-bottom: 20px * 2;
+        }
+    }
+
+    &.gutter-30 {
+        margin: 0 -30px;
+        [class*='col-'] {
+            padding: 0 30px;
+            margin-bottom: 30px * 2;
+        }
+    }
+
+    &.gutter-40 {
+        margin: 0 -40px;
+        [class*='col-'] {
+            padding: 0 40px;
+            margin-bottom: 40px * 2;
+        }
+    }
+
+    &.gutter-50 {
+        margin: 0 -50px;
+        [class*='col-'] {
+            padding: 0 50px;
+            margin-bottom: 50px * 2;
+        }
+    }
+
+    &.gutter-60 {
+        margin: 0 -60px;
+        [class*='col-'] {
+            padding: 0 60px;
+            margin-bottom: 60px * 2;
+        }
+    }
+ 
+}
+ 
+[class*='col-'] {
+    float: left;
+    padding: 0 variables.$gutter-px;
+    width: 100%;
+    min-height: 1px;
+    margin-bottom: variables.$gutter-px * 2;
+}
+ 
+@for $i from 1 through variables.$columns {
+    .row>.col-xs-#{$i} { width: ($i * $column-width-percent); }
+}
+ 
+@include mixins.media-from(s) {
+    @for $i from 1 through variables.$columns {
+        .row>.col-s-#{$i} { width: ($i * $column-width-percent); }
+    }
+}
+
+@include mixins.media-from(m) {
+    @for $i from 1 through variables.$columns {
+        .row>.col-m-#{$i} { width: ($i * $column-width-percent); }
+    }
+}
+ 
+@include mixins.media-from(l) {
+    @for $i from 1 through variables.$columns {
+        .row>.col-l-#{$i} { width: ($i * $column-width-percent); }
+    }
+}
+ 
+@include mixins.media-from(xl) {
+    @for $i from 1 through variables.$columns {
+        .row>.col-xl-#{$i} { width: ($i * $column-width-percent); }
+    }
+}
+ 
+@include mixins.media-from(xxl) {
+    @for $i from 1 through variables.$columns {
+        .row>.col-xxl-#{$i} { width: ($i * $column-width-percent); }
+    }
+}
+ 
+ 

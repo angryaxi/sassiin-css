@@ -1,0 +1,45 @@
+/*
+ * Sassiin CSS - Variables
+ */
+
+// Colors
+$primary-color: #3e84e0 !default;
+$secondary-color: #ddf4ff !default;
+$link-color: $primary-color !default;
+$body-color: #ffffff !default;
+
+// Typography
+$base-font-size: 18px !default;
+$primary-font: sans-serif !default;
+$secondary-font: sans-serif !default;
+$default-text-color: #444444 !default;
+
+// Wrapper sizes
+$wrapper-px: 1200px !default;
+$wrapper-narrow-px: 960px !default;
+$wrapper-wide-px: 1400px !default;
+
+// Wrapper paddings
+$wrapper-padding: 20px !default;
+$wrapper-padding-s: 20px !default;
+$wrapper-padding-m: 20px !default;
+$wrapper-padding-l: 20px !default;
+$wrapper-padding-xl: 20px !default;
+$wrapper-padding-xxl: 20px !default;
+
+// Breakpoints
+$breakpoint-s: 480px !default;
+$breakpoint-m: 768px !default;
+$breakpoint-l: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-xxl: 1600px !default;
+
+// Columns
+$columns: 12 !default;
+$gutter-px: 15px !default;
+
+// Body min-width
+$body-min-width: 320px !default;
+
+// Link transition animation
+$link-transition: true !default;
