@@ -2,153 +2,154 @@
  * Sassiin CSS - Basic styles
  */
 
-@use "variables";
-@use "mixins";
-
-/* Basic styles
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-*, *::after, *::before {
-    box-sizing: border-box;
-}
-
-body {
-    font-size: variables.$base-font-size;
-    font-family: variables.$primary-font;
-    color: variables.$default-text-color;
-    background-color: variables.$body-color;
-    min-width: variables.$body-min-width;
-}
-
-a {
-    color: variables.$link-color;
-}
-
-@if variables.$link-transition {
-    a {
-        transition: opacity 0.3s;
-        &:hover {
-            opacity: .8;
-        }
-    }
-}
-
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* Wrappers
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.wrapper {
-    margin: 0 auto;
-    max-width: variables.$wrapper-px;
-    width: 100%;
-    overflow: hidden;
-    padding: 0 variables.$wrapper-padding;
-   
-    &.overflowing { overflow: visible; }
-
-    // Default wrapper
-    &.no-padding { padding: 0; max-width: variables.$wrapper-px - variables.$wrapper-padding * 2; }
-
-    // Narrow wrapper
-    &.narrow { max-width: variables.$wrapper-narrow-px; }
-    &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding * 2; }
-
-    // Wide wrapper
-    &.wide { max-width: variables.$wrapper-wide-px; }
-    &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding * 2; }
+ @use "variables";
+ @use "mixins";
+ 
+ /* Basic styles
+ –––––––––––––––––––––––––––––––––––––––––––––––––– */
+ 
+ *, *::after, *::before {
+     box-sizing: border-box;
+ }
+ 
+ body {
+     font-size: variables.$base-font-size;
+     font-family: variables.$primary-font;
+     color: variables.$default-text-color;
+     background-color: variables.$body-color;
+     min-width: variables.$body-min-width;
+ }
+ 
+ a {
+     color: variables.$link-color;
+ }
+ 
+ @if variables.$link-transition {
+     a {
+         transition: opacity 0.3s;
+         &:hover {
+             opacity: .8;
+         }
+     }
+ }
+ 
+ 
+ img {
+     max-width: 100%;
+     height: auto;
+ }
+ 
+ 
+ /* Wrappers
+ –––––––––––––––––––––––––––––––––––––––––––––––––– */
+ 
+ .wrapper {
+     margin: 0 auto;
+     max-width: variables.$wrapper-px;
+     width: 100%;
+     overflow: hidden;
+     padding: 0 variables.$wrapper-padding;
     
-    @include mixins.media-from(s) {
-        // Default
-        & { padding: 0 variables.$wrapper-padding-s } // Other wrapper sizes inherit from this.
-        &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-s * 2; }
-
-        // Narrow
-        &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-s * 2; }
-
-        // Wide
-        &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-s * 2; }
-    }
-    @include mixins.media-from(m) {
-        // Default
-        & { padding: 0 variables.$wrapper-padding-m } // Other wrapper sizes inherit from this.
-        &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-m * 2; }
-
-        // Narrow
-        &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-m * 2; }
-
-        // Wide
-        &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-m * 2; }
-    }
-    @include mixins.media-from(l) {
-        // Default
-        & { padding: 0 variables.$wrapper-padding-l } // Other wrapper sizes inherit from this.
-        &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-l * 2; }
-
-        // Narrow
-        &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-l * 2; }
-
-        // Wide
-        &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-l * 2; }
-    }
-    @include mixins.media-from(xl) {
-        // Default
-        & { padding: 0 variables.$wrapper-padding-xl } // Other wrapper sizes inherit from this.
-        &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-xl * 2; }
-
-        // Narrow
-        &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-xl * 2; }
-
-        // Wide
-        &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-xl * 2; }
-    }
-
-    @include mixins.media-from(xxl) {
-        // Default
-        & { padding: 0 variables.$wrapper-padding-xxl } // Other wrapper sizes inherit from this.
-        &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-xxl * 2; }
-
-        // Narrow
-        &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-xxl * 2; }
-
-        // Wide
-        &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-xxl * 2; }
-    }
-
-
-}
-
-/* Typography
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-h1,h2,h3,h4,h5,h6 {
-    margin-top: 0;
-}
-
-p {
-    margin: 0 0 1em 0;
-    line-height: 1.5em;
-}
-
-p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
-    margin-top: 1.3em;
-}
-
-// Hide from breakpoints
-@include mixins.media-from(s)   { .hide-from-s { display: none; } }
-@include mixins.media-from(m)   { .hide-from-m { display: none; } }
-@include mixins.media-from(l)   { .hide-from-l { display: none; } }
-@include mixins.media-from(xl)  { .hide-from-xl { display: none; } }
-@include mixins.media-from(xxl) { .hide-from-xxl { display: none; } }
-
-// Show from breakpoints
-@include mixins.media-to(s)   { .show-from-s { display: none; } }
-@include mixins.media-to(m)   { .show-from-m { display: none; } }
-@include mixins.media-to(l)   { .show-from-l { display: none; } }
-@include mixins.media-to(xl)  { .show-from-xl { display: none; } }
-@include mixins.media-to(xxl) { .show-from-xxl { display: none; } }
+     &.overflowing { overflow: visible; }
+ 
+     // Default wrapper
+     &.no-padding { padding: 0; max-width: variables.$wrapper-px - variables.$wrapper-padding * 2; }
+ 
+     // Narrow wrapper
+     &.narrow { max-width: variables.$wrapper-narrow-px; }
+     &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding * 2; }
+ 
+     // Wide wrapper
+     &.wide { max-width: variables.$wrapper-wide-px; }
+     &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding * 2; }
+     
+     @include mixins.media-from(s) {
+         // Default
+         & { padding: 0 variables.$wrapper-padding-s } // Other wrapper sizes inherit from this.
+         &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-s * 2; }
+ 
+         // Narrow
+         &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-s * 2; }
+ 
+         // Wide
+         &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-s * 2; }
+     }
+     @include mixins.media-from(m) {
+         // Default
+         & { padding: 0 variables.$wrapper-padding-m } // Other wrapper sizes inherit from this.
+         &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-m * 2; }
+ 
+         // Narrow
+         &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-m * 2; }
+ 
+         // Wide
+         &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-m * 2; }
+     }
+     @include mixins.media-from(l) {
+         // Default
+         & { padding: 0 variables.$wrapper-padding-l } // Other wrapper sizes inherit from this.
+         &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-l * 2; }
+ 
+         // Narrow
+         &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-l * 2; }
+ 
+         // Wide
+         &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-l * 2; }
+     }
+     @include mixins.media-from(xl) {
+         // Default
+         & { padding: 0 variables.$wrapper-padding-xl } // Other wrapper sizes inherit from this.
+         &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-xl * 2; }
+ 
+         // Narrow
+         &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-xl * 2; }
+ 
+         // Wide
+         &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-xl * 2; }
+     }
+ 
+     @include mixins.media-from(xxl) {
+         // Default
+         & { padding: 0 variables.$wrapper-padding-xxl } // Other wrapper sizes inherit from this.
+         &.no-padding { max-width: variables.$wrapper-px - variables.$wrapper-padding-xxl * 2; }
+ 
+         // Narrow
+         &.narrow.no-padding { max-width: variables.$wrapper-narrow-px - variables.$wrapper-padding-xxl * 2; }
+ 
+         // Wide
+         &.wide.no-padding { max-width: variables.$wrapper-wide-px - variables.$wrapper-padding-xxl * 2; }
+     }
+ 
+ 
+ }
+ 
+ /* Typography
+ –––––––––––––––––––––––––––––––––––––––––––––––––– */
+ 
+ h1,h2,h3,h4,h5,h6 {
+     margin-top: 0;
+ }
+ 
+ p {
+     margin: 0 0 1em 0;
+     line-height: variables.$line-height;
+ }
+ 
+ p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+     margin-top: 1.3em;
+ }
+ 
+ // Hide from breakpoints
+ @include mixins.media-from(s)   { .hide-from-s { display: none; } }
+ @include mixins.media-from(m)   { .hide-from-m { display: none; } }
+ @include mixins.media-from(l)   { .hide-from-l { display: none; } }
+ @include mixins.media-from(xl)  { .hide-from-xl { display: none; } }
+ @include mixins.media-from(xxl) { .hide-from-xxl { display: none; } }
+ 
+ // Show from breakpoints
+ @include mixins.media-to(s)   { .show-from-s { display: none; } }
+ @include mixins.media-to(m)   { .show-from-m { display: none; } }
+ @include mixins.media-to(l)   { .show-from-l { display: none; } }
+ @include mixins.media-to(xl)  { .show-from-xl { display: none; } }
+ @include mixins.media-to(xxl) { .show-from-xxl { display: none; } }
+ 
